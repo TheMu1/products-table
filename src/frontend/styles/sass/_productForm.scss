@@ -38,3 +38,7 @@
   padding-bottom: 3%;
   text-align: center;
 }
+
+.ui.form .field:last-child, .ui.form .fields:last-child .field {
+  margin-bottom: 0.1%; //chrome semantic ui field fix
+}
