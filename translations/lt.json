@@ -94,5 +94,13 @@
   },
   "select":{
     "noResults": "Rezultatu nerasta."
+  },
+  "noPriceChart": {
+    "header": "Ups atrodo produkto kaina nesikeitė :)",
+    "text": "Padarykite produkto kainos pakeitimus, kad pamatyti grafiką"
+  },
+  "noQuantityChart": {
+    "header": "Ups atrodo produkto kiekis nesikeitė :)",
+    "text": "Padarykite produkto kiekio pakeitimus, kad pamatyti grafiką"
   }
 }

@@ -10,19 +10,21 @@ const sort = (column, iconColumn, products, direction) => {
     column = column.toLowerCase();
     direction = iconColumn ? (direction === 'ascending' ? 'descending' : 'ascending') : 'ascending';
     const sortedData = products.sort((a, b) => {
-        //detect are we sorting strings or numeric values
-        if (isNumeric(a[column])) {
-            return a[column] - b[column];
-        } else {
-            const nameA = a[column].toUpperCase();
-            const nameB = b[column].toUpperCase();
-            if (nameA < nameB) {
-                return -1;
+        if(a[column] && b[column]){
+            //detect are we sorting strings or numeric values
+            if (isNumeric(a[column])) {
+                return a[column] - b[column];
+            } else {
+                const nameA = a[column].toUpperCase();
+                const nameB = b[column].toUpperCase();
+                if (nameA < nameB) {
+                    return -1;
+                }
+                if (nameA > nameB) {
+                    return 1;
+                }
+                return 0;
             }
-            if (nameA > nameB) {
-                return 1;
-            }
-            return 0;
         }
     });
     if (direction === 'descending') {

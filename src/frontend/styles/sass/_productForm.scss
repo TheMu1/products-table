@@ -31,3 +31,10 @@
 .error .custom-input input {
   color: $error-red !important;
 }
+
+.no-chart-text{
+  color: $label-color;
+  padding-top: 5%;
+  padding-bottom: 3%;
+  text-align: center;
+}

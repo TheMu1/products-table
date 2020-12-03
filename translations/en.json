@@ -93,5 +93,13 @@
   },
   "select":{
     "noResults": "No results found."
+  },
+  "noPriceChart": {
+    "header": "Opps it seems you do not have any price changes yet :)",
+    "text": "Make some  product price changes to see history chart"
+  },
+  "noQuantityChart": {
+    "header": "Opps it seems you do not have any quantity changes yet :)",
+    "text": "Make some  product quantity changes to see history chart"
   }
 }

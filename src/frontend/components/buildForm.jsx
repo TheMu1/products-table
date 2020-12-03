@@ -45,51 +45,65 @@ export default class BuildForm extends React.Component {
                 </Grid.Row>
             // Product view quantity history tab
             if (activeTab === 'quantity') {
-                product.quantityHistory.forEach((el) => {
-                    data.push(Number(el.value));
-                    categories.push(new Date(el.timestamp).toLocaleString());
-                });
-                detailsTabContent =
-                    <>
-                    <Grid.Row centered>
-                        <Grid.Column width={9}>
-                            <LineChart
-                                title={language.charts.quantity.header}
-                                data={data}
-                                categories={categories}
-                                seriesName={language.charts.quantity.seriesName}
-                                valuesName={language.charts.quantity.valueName}
-                            />
-                        </Grid.Column>
-                    </Grid.Row>
-                    {backButton}
-                    </>
+                if (product.quantityHistory.length > 0) {
+                    product.quantityHistory.forEach((el) => {
+                        data.push(Number(el.value));
+                        categories.push(new Date(el.timestamp).toLocaleString());
+                    });
+                    detailsTabContent =
+                        <Grid.Row centered>
+                            <Grid.Column width={9}>
+                                <LineChart
+                                    title={language.charts.quantity.header}
+                                    data={data}
+                                    categories={categories}
+                                    seriesName={language.charts.quantity.seriesName}
+                                    valuesName={language.charts.quantity.valueName}
+                                />
+                            </Grid.Column>
+                        </Grid.Row>
+                } else {
+                    detailsTabContent =
+                        <Grid.Row centered>
+                            <Grid.Column width={7} className="no-chart-text" textAlign="center">
+                                <h2>{language.noQuantityChart.header}</h2> <br/>
+                                <h3>{language.noQuantityChart.text}</h3>
+                            </Grid.Column>
+                        </Grid.Row>
+                }
             }
             // Product view price history tab
             if (activeTab === 'price') {
-                product.priceHistory.forEach((el) => {
-                    data.push(Number(el.value));
-                    categories.push(new Date(el.timestamp).toLocaleString());
-                });
-                detailsTabContent =
-                    <>
-                    <Grid.Row centered>
-                        <Grid.Column width={9}>
-                            <LineChart
-                                title={language.charts.price.header}
-                                data={data}
-                                categories={categories}
-                                seriesName={language.charts.price.seriesName}
-                                valuesName={language.charts.price.valueName}
-                            />
-                        </Grid.Column>
-                    </Grid.Row>
-                    {backButton}
-                    </>
+                console.log(product.priceHistory.length);
+                if (product.priceHistory.length > 0) {
+                    product.priceHistory.forEach((el) => {
+                        data.push(Number(el.value));
+                        categories.push(new Date(el.timestamp).toLocaleString());
+                    });
+                    detailsTabContent =
+                        <Grid.Row centered>
+                            <Grid.Column width={9}>
+                                <LineChart
+                                    title={language.charts.price.header}
+                                    data={data}
+                                    categories={categories}
+                                    seriesName={language.charts.price.seriesName}
+                                    valuesName={language.charts.price.valueName}
+                                />
+                            </Grid.Column>
+                        </Grid.Row>
+                } else {
+                    detailsTabContent =
+                        <Grid.Row centered>
+                            <Grid.Column width={7} className="no-chart-text" textAlign="center">
+                                <h2>{language.noPriceChart.header}</h2> <br/>
+                                <h3>{language.noPriceChart.text}</h3>
+                            </Grid.Column>
+                        </Grid.Row>
+                }
             }
             if (activeTab === 'details') {
                 detailsTabContent =
-                    <>
                     <Grid.Row centered>
                         <Grid.Column width={5}>
                             <ProductForm
@@ -100,8 +114,6 @@ export default class BuildForm extends React.Component {
                             />
                         </Grid.Column>
                     </Grid.Row>
-                    {backButton}
-                    </>
             }
             //Should we build product view/details page
             if (/^(\/products\/\d+$)$/.test(this.props.location.pathname)) {
@@ -142,6 +154,7 @@ export default class BuildForm extends React.Component {
                         </Grid.Column>
                     </Grid.Row>
                     {detailsTabContent}
+                    {backButton}
                     </>
             }
         }

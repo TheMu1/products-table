@@ -4,7 +4,7 @@
 /// adds header content from text-th attribute before each table cell
 @media
 only screen
-and (max-width: 760px), (min-device-width: 768px)
+and (max-width: 830px), (min-device-width: 814px)
 and (max-device-width: 811px)  {
   td:nth-of-type(1):before { font-weight:bold; content: attr(text-th) ": "; }
   td:nth-of-type(2):before { font-weight:bold; content: attr(text-th) ": "; }
@@ -35,5 +35,32 @@ and (max-device-width: 811px)  {
 
   .ui.checkbox .box:before, .ui.checkbox label:before {
     top: 3px;
+  }
+
+  .custom-input-tbl-inpt{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ui.table:not(.unstackable) tr > th, .ui.table:not(.unstackable) tr > td {
+    background: none;
+    border: none !important;
+    padding: 0.25em 0.75em !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  .ui.table:not(.unstackable) tbody, .ui.table:not(.unstackable) tr, .ui.table:not(.unstackable) tr > th, .ui.table:not(.unstackable) tr > td {
+    width: auto !important;
+    display: block !important;
+    border-top: 1px solid #737373;
+  }
+}
+
+@media
+only screen and (max-width: 977px) {
+  .ui.input > input{
+    padding: 0.67857143em 0.1em;
   }
 }

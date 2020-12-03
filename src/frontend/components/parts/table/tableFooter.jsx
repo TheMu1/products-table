@@ -23,7 +23,10 @@ export default class TableFooter extends React.Component {
             Table rows starts from 0 so we need to add +1 if totalRows > 0 for user representation from which row
             are showing i.e. rows showing: 1-3 of 3 instead of 0-3 of 3
          */
-        let startShowingRows = page * rowsPerPage + totalRows > 0 ? 1:0;
+        let startShowingRows = page * rowsPerPage;
+        if (totalRows > 0 && page === 0){
+            startShowingRows += 1;
+        }
         return (
             <Table.Footer>
                 <Table.Row>
