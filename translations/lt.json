@@ -80,7 +80,7 @@
   "placeholders":{
     "numbers": "Galimi tik skaičiai [0-9]",
     "numbersComma": "Galimi tik skaičiai ir '.' pvz. 1.33, 0.33",
-    "lettersNumbers": "Tik raides ir skaičiai"
+    "lettersNumbers": "Tik raides ir skaičiai/tarpas (pvz. Coca Cola)"
   },
   "modal":{
     "header": "Ištrinti pasirinktą produktą",

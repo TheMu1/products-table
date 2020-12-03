@@ -79,7 +79,7 @@
   "placeholders":{
     "numbers": "Only numbers are available [0-9]",
     "numbersComma": "Only numbers and '.' are available i.e. 1.33, 0.33",
-    "lettersNumbers": "Only letters and numbers available"
+    "lettersNumbers": "Only letters and numbers/space available i.e. Coca Cola"
   },
   "modal":{
     "header": "Delete selected product",

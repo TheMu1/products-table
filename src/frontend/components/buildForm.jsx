@@ -4,6 +4,7 @@ import ProductForm from "./productForm/productForm";
 import {Responsive, Grid, Menu, Icon} from "semantic-ui-react";
 import LineChart from "./parts/lineChart";
 import CustomButton from "./parts/customButton";
+import {getProducts} from "./actions/fetcingActions";
 /*
     Builds product layout view depending on the  purpose: preview/edit/create new
  */
@@ -23,7 +24,7 @@ export default class BuildForm extends React.Component {
 
     render() {
         let component, detailsTabContent = '';
-        let products = JSON.parse(localStorage.getItem('products'));
+        let products = getProducts();
         let product = {};
         let activeTab = this.state.activeTab; //active tab in product details view
         let categories = [], data = [];

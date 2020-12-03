@@ -11,11 +11,11 @@ import BuildView from "./buildForm";
 import PageNotFound from "./pageNotFound";
 import En from "../../../translations/en.json";
 import Lt from "../../../translations/lt.json";
+import {getLanguage} from "./actions/fetcingActions";
 
 //App entry point with router and selected language check
 function App(){
-        let tmp = JSON.parse(localStorage.getItem('lang'));
-        let selectedLang = tmp ? tmp : 'English';
+        let selectedLang = getLanguage();
         let lang;
         switch (selectedLang) {
             case 'English':

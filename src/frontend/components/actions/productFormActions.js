@@ -1,6 +1,6 @@
 import {validateForm} from "./validate";
 /*
-    On form save button click action.
+    Form save button on click action.
     @translatedMessages - object with translated texts
     @product - product field values
     @priceChanged - represents if price value have been changed
