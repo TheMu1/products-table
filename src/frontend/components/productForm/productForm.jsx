@@ -146,7 +146,6 @@ class ProductForm extends React.Component {
                       editable={field.name === 'ean' ? eanEditable : editable}
                       onChange={this.onInputChange}
                       value={this.state.product[field.name]}
-                      editable={eanEditable}
                       pattern={field.pattern}
                       placeholder={language.placeholders[field.placeholder]}
                   />
