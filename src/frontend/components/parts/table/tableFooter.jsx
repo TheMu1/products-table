@@ -19,6 +19,11 @@ export default class TableFooter extends React.Component {
         let tmp = page * rowsPerPage + rowsPerPage;
         //check if currently showing rows in pagination footer not outbound totalRows count
         showingRows = (tmp > totalRows) ? totalRows : tmp;
+        /*
+            Table rows starts from 0 so we need to add +1 if totalRows > 0 for user representation from which row
+            are showing i.e. rows showing: 1-3 of 3 instead of 0-3 of 3
+         */
+        let startShowingRows = page * rowsPerPage + totalRows > 0 ? 1:0;
         return (
             <Table.Footer>
                 <Table.Row>
@@ -29,7 +34,7 @@ export default class TableFooter extends React.Component {
                                   options={options}
                                   onChange={this.props.onChangePerPage}/>
                         <span className="pagination-rowsInfo">
-                            {translation.showing} {page * rowsPerPage + 1} - {showingRows} {translation.of} {totalRows}
+                            {translation.showing} {startShowingRows} - {showingRows} {translation.of} {totalRows}
                         </span>
                         <Button className="pagination-icon"
                                 circular icon="angle left"
@@ -39,7 +44,7 @@ export default class TableFooter extends React.Component {
                         <Button className="pagination-icon"
                                 circular icon="angle right"
                                 onClick={() => this.props.onPageSelect(page + 1)}
-                                disabled={page === Math.floor(totalRows/rowsPerPage)}
+                                disabled={page+2 > Math.ceil(totalRows/rowsPerPage)}
                         />
                     </Table.HeaderCell>
                 </Table.Row>

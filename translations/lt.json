@@ -19,7 +19,8 @@
     "noDataText": "Tuščia",
     "rowsPerPage": "Eil. per puslapį",
     "showing": "rodoma",
-    "of": "iš"
+    "of": "iš",
+    "warningNote": "Pastaba"
   },
   "createPage":{
     "header": "Sukurti naują produktą :",
@@ -78,7 +79,7 @@
   },
   "placeholders":{
     "numbers": "Galimi tik skaičiai [0-9]",
-    "numbersComma": "Galimi tik skaičiai ir '.'",
+    "numbersComma": "Galimi tik skaičiai ir '.' pvz. 1.33, 0.33",
     "lettersNumbers": "Tik raides ir skaičiai"
   },
   "modal":{
@@ -86,6 +87,12 @@
     "content": "Ar jus tikrai norite ištrinti pasirinktą produktą ?",
     "positiveBtn": "Taip",
     "negativeBtn": "Ne"
-
+  },
+  "notFoundPage":{
+    "text": "404. Puslapis nerastas.",
+    "button": "Atgal"
+  },
+  "select":{
+    "noResults": "Rezultatu nerasta."
   }
 }

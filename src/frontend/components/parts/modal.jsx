@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Button, Modal} from 'semantic-ui-react'
+import {Modal} from 'semantic-ui-react';
+import CustomButton from "./customButton";
 
 export default class CustomModal extends React.Component {
     constructor(props) {
@@ -16,12 +17,18 @@ export default class CustomModal extends React.Component {
                         {this.props.modalContent}
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button negative onClick={this.props.negativeAction}>
-                            {this.props.negativeBtnText}
-                        </Button>
-                        <Button positive onClick={this.props.positiveAction}>
-                            {this.props.positiveBtnText}
-                        </Button>
+                        <CustomButton
+                            color="red"
+                            icon="x icon"
+                            btnText={this.props.negativeBtnText}
+                            onClick={this.props.negativeAction}
+                        />
+                        <CustomButton
+                            color="green"
+                            icon="trash alternate outline"
+                            btnText={this.props.positiveBtnText}
+                            onClick={this.props.positiveAction}
+                        />
                     </Modal.Actions>
                 </Modal>
             </div>

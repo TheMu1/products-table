@@ -15,21 +15,22 @@ export default class LineChart extends React.Component {
 
 
     render() {
+        let {title, valuesName, categories, data, seriesName} = this.props;
         const chartOptions = {
             title: {
-                text: this.props.title ? this.props.title : ''
+                text: title ? title : ''
             },
             yAxis: {
                 title: {
-                    text: this.props.valuesName
+                    text: valuesName
                 }
             },
             xAxis: {
-                categories: this.props.categories ? this.props.categories : [],
+                categories: categories ? categories : [],
             },
             series: [{
-                data: this.props.data ? this.props.data : [],
-                name: this.props.seriesName
+                data: data ? data : [],
+                name: seriesName
             }
             ],
             plotOptions: {

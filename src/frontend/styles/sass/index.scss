@@ -3,7 +3,9 @@
 @import 'mediaQueries';
 @import 'productForm';
 @import 'table';
+@import 'notFoundPage';
 
+///Main page styles with some additional products view styles including languages drop down
 html, body {
     font-family: 'Roboto', sans-serif;
     background: $main-background;
@@ -20,6 +22,7 @@ html, body {
     border-bottom: 1px solid $input-border !important;
     border-radius: 0 !important;
     min-width: 122px !important;
+    float: right;
     background-color: transparent !important;
 }
 
@@ -36,15 +39,12 @@ html, body {
     float: right;
 }
 
-.notFound-page-container {
-    color: $dark-blue;
-    @include center-flex
+.ui.secondary.pointing.menu .item:hover {
+  border-color: $main-blue;
+  color: $main-blue !important;
 }
 
-.back-btn {
-    color: $dark-blue;
-}
-
-.back-btn:hover {
-    color: $main-blue;
+.ui.secondary.pointing.menu .active.item, .active.item:hover {
+  color: $main-blue !important;
+  border-color: $main-blue !important;
 }

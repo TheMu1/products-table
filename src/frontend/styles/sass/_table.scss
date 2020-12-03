@@ -1,6 +1,11 @@
 @import 'variables';
 @import 'mixins.scss';
 
+/// All styles belongs to the table, including:
+///    table controls buttons;
+///    table inputs;
+///    table pagination;
+
 .custom-table {
   border-top: hidden !important;
   border-left: hidden !important;
@@ -10,7 +15,7 @@
 }
 
 .custom-table-header {
-  border: hidden !important;
+  border-left: hidden !important;
 }
 
 .table-btn {
@@ -45,7 +50,7 @@
 
 .pagination-icon:hover {
   cursor: pointer;
-  color: #2185D0 !important;
+  color: $main-blue !important;
   background-color: rgba(34, 36, 38, 0.15) !important;
 }
 

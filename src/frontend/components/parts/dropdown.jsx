@@ -32,6 +32,7 @@ export default class Selection extends React.Component {
                     size="Large"
                     onChange={this.props.onChange}
                     value={this.props.value}
+                    noResultsMessage={this.props.noResults}
                 />
             </div>
         )

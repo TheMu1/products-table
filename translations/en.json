@@ -19,7 +19,8 @@
     "noDataText": "No rows found",
     "rowsPerPage": "Rows per page",
     "showing": "showing",
-    "of": "of"
+    "of": "of",
+    "warningNote": "Note"
   },
   "createPage":{
     "header": "Create new product:",
@@ -77,7 +78,7 @@
   },
   "placeholders":{
     "numbers": "Only numbers are available [0-9]",
-    "numbersComma": "Only numbers and '.' are available.",
+    "numbersComma": "Only numbers and '.' are available i.e. 1.33, 0.33",
     "lettersNumbers": "Only letters and numbers available"
   },
   "modal":{
@@ -85,6 +86,12 @@
     "content": "Are you sure want to delete seelcted product ?",
     "positiveBtn": "Yes",
     "negativeBtn": "No"
-
+  },
+  "notFoundPage":{
+    "text": "404. Page not found.",
+    "button": "Back"
+  },
+  "select":{
+    "noResults": "No results found."
   }
 }

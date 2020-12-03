@@ -1,7 +1,11 @@
+@import 'variables';
+
+/// media queries to add column header annotation or mobile friendly representation
+/// adds header content from text-th attribute before each table cell
 @media
 only screen
 and (max-width: 760px), (min-device-width: 768px)
-and (max-device-width: 1024px)  {
+and (max-device-width: 811px)  {
   td:nth-of-type(1):before { font-weight:bold; content: attr(text-th) ": "; }
   td:nth-of-type(2):before { font-weight:bold; content: attr(text-th) ": "; }
   td:nth-of-type(3):before { font-weight:bold; content: attr(text-th) ": "; }
@@ -12,8 +16,16 @@ and (max-device-width: 1024px)  {
   td:nth-of-type(8):before { font-weight:bold; content: attr(text-th) ": "; }
   td:nth-of-type(9):before { font-weight:bold; content: attr(text-th) ": "; }
 
-  tr:nth-child(odd) {
-    background: #e7e7e7 !important;
+  thead, tfoot{
+    background: $table-bg;
+  }
+  /// change evens tr background for more comfortable table read on mobile devices
+  tbody tr:nth-child(even) {
+    background: $table-rows-even-bg;
+  }
+
+  tbody .ui.checkbox .box:after, .ui.checkbox label:after {
+    top: 3px;
   }
 
   h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {

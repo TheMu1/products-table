@@ -2,7 +2,8 @@
   All product form fields are described in this json
   @name - field name
   @pattern - field input pattern
-  @placehoder - field placeholder name (for later translation)
+  @placehoder - field placeholder name (for later translation) placeholder also used to display on active input checks
+                later can be replaced with separate key:value for more different/attractive user facing messages.
 */
 const fields =
 [
@@ -23,7 +24,7 @@ const fields =
   },
   {
     "name": "weight",
-    "pattern": "^\\d*([\.]\d{0,3})?$",
+    "pattern": "^\\d+([\.]\\d{0,2})?$",
     "placeholder": "numbersComma",
     "type": "text"
   },
@@ -40,7 +41,7 @@ const fields =
   },
   {
     "name": "price",
-    "pattern": "^\\d*([\.]\d{0,2})?$",
+    "pattern": "^\\d+([\\.]\\d{0,2})?$",
     "placeholder": "numbersComma",
     "type": "text"
   }

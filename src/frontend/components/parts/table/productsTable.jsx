@@ -33,12 +33,12 @@ export default class ProductsTable extends React.Component {
     };
 
     render() {
-        let language = this.props.language;
+        let {language, sortColumn, sortDirection, sort, handleInputChange} = this.props;
         let tableCol = language.table.columns;
-        let page = this.state.page;
-        let rowsPerPage = this.state.rowsPerPage;
+        let {page, rowsPerPage} = this.state;
         let tableHeader = [];
         let tableData = [];
+        //table columns
         const columns = [
             {
                 label: tableCol.ean,
@@ -80,13 +80,14 @@ export default class ProductsTable extends React.Component {
         columns.forEach(column => {
             tableHeader.push(
                 <Table.HeaderCell className="custom-table-header" key={column.index}
-                                  sorted={this.props.sortColumn === column.index ? this.props.sortDirection : null}
-                                  onClick={this.props.sort.bind(this, column.index)}
+                                  sorted={sortColumn === column.index ? sortDirection : null}
+                                  onClick={sort.bind(this, column.index)}
                 >
                     {column.label}
                 </Table.HeaderCell>
             );
         });
+        //check if there is some data to represent in the table
         if (this.props.data.length > 0) {
             //slice data into pages
             this.props.data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -107,9 +108,7 @@ export default class ProductsTable extends React.Component {
                                     type="number"
                                     minValue="0"
                                     editable={true}
-                                    onChange={e => {
-                                        this.props.handleInputChange(index, 'quantity', e)
-                                    }}
+                                    onChange={e => {handleInputChange(index, 'quantity', e)}}
                                     value={row.quantity}
                                 />
                             </Table.Cell>
@@ -122,9 +121,7 @@ export default class ProductsTable extends React.Component {
                                     type="text"
                                     minValue="0"
                                     editable={true}
-                                    onChange={e => {
-                                        this.props.handleInputChange(index, 'price', e)
-                                    }}
+                                    onChange={e => {handleInputChange(index, 'price', e)}}
                                     value={row.price}
                                 />
                             </Table.Cell>
@@ -157,7 +154,7 @@ export default class ProductsTable extends React.Component {
         } else {
             tableData.push(
                 <Table.Row key="warning">
-                    <Table.Cell colSpan="9" style={{padding: '25px'}}>
+                    <Table.Cell text-th={language.table.warningNote} colSpan="9" style={{padding: '25px'}}>
                         {language.table.noDataText}
                     </Table.Cell>
                 </Table.Row>

@@ -16,7 +16,7 @@ class ProductForm extends React.Component {
                 ean: '',
                 name: '',
                 type: '',
-                weight: '',
+                weight: '0',
                 flavour: '',
                 active: false,
                 quantity: '0',
@@ -58,7 +58,7 @@ class ProductForm extends React.Component {
             ...result
         });
     };
-
+    //tracks checkbox select
     onActiveCheckChange = () => {
         this.setState((prevState) => {
             let product = {...this.state.product, active: !prevState.product.active};
@@ -67,9 +67,10 @@ class ProductForm extends React.Component {
             }
         })
     };
-
+    //tracks form inputs changes depending on input name
     onInputChange = (e) => {
         if (e.target.validity.valid) {
+            //flags to check if price/quantity has been changed and should be represented in history graph
             let {quantityChanged, priceChanged} = this.state;
             const product = {...this.state.product, [e.target.name]: e.target.value};
             if (e.target.name === 'quantity') {
@@ -98,19 +99,20 @@ class ProductForm extends React.Component {
 
     render() {
         let editable = this.state.editable;
+        let purpose = this.props.purpose;
         let form = [], buttons = [];
         let eanEditable = '', successMessage = '';
         let language = this.props.language;
         if (this.state.saved) {
             successMessage =
                 <SuccessMessage
-                    header="Success"
                     icon="save"
                     content={this.state.successMessage}
                 />
         }
-        eanEditable = !(!editable || this.props.purpose === 'edit');
-        if(this.props.purpose != "view"){
+        //check if it's allowed to edit ean number
+        eanEditable = !(!editable || purpose === 'edit');
+        if(purpose != "view"){
             buttons.push(
                 <CustomButton
                     key="1"
@@ -179,5 +181,4 @@ ProductForm.propTypes = {
     purpose: PropTypes.string,
     language: PropTypes.object,
 };
-
 export default withRouter(ProductForm)

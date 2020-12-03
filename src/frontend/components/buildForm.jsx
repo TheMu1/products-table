@@ -4,25 +4,28 @@ import ProductForm from "./productForm/productForm";
 import {Responsive, Grid, Menu, Icon} from "semantic-ui-react";
 import LineChart from "./parts/lineChart";
 import CustomButton from "./parts/customButton";
-
+/*
+    Builds product form component depending on the  purpose: preview/edit/create new
+ */
 export default class BuildForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             ean: this.props.match.params.id,
-            activeMenu: 'details'
+            activeTab: 'details'
         };
     }
 
     //set active tab menu
     onMenuClick(pane) {
-        this.setState({activeMenu: pane});
+        this.setState({activeTab: pane});
     }
 
     render() {
         let component, detailsTabContent = '';
         let products = JSON.parse(localStorage.getItem('products'));
         let product = {};
+        let activeTab = this.state.activeTab; //active tab in product details view
         let categories = [], data = [];
         let language = this.props.language;
         if (products) {
@@ -40,7 +43,8 @@ export default class BuildForm extends React.Component {
                         onClick={() => this.props.history.push('/')}
                     />
                 </Grid.Row>
-            if (this.state.activeMenu === 'quantity') {
+            // Product view quantity history tab
+            if (activeTab === 'quantity') {
                 product.quantityHistory.forEach((el) => {
                     data.push(Number(el.value));
                     categories.push(new Date(el.timestamp).toLocaleString());
@@ -61,8 +65,8 @@ export default class BuildForm extends React.Component {
                     {backButton}
                     </>
             }
-
-            if (this.state.activeMenu === 'price') {
+            // Product view price history tab
+            if (activeTab === 'price') {
                 product.priceHistory.forEach((el) => {
                     data.push(Number(el.value));
                     categories.push(new Date(el.timestamp).toLocaleString());
@@ -83,8 +87,7 @@ export default class BuildForm extends React.Component {
                     {backButton}
                     </>
             }
-
-            if (this.state.activeMenu === 'details') {
+            if (activeTab === 'details') {
                 detailsTabContent =
                     <>
                     <Grid.Row centered>
@@ -100,7 +103,7 @@ export default class BuildForm extends React.Component {
                     {backButton}
                     </>
             }
-
+            //Should we build product view/details page
             if (/^(\/products\/\d+$)$/.test(this.props.location.pathname)) {
                 component =
                     <>
@@ -117,19 +120,20 @@ export default class BuildForm extends React.Component {
                         <Grid.Column width={5}>
                             <Menu pointing secondary fluid widths={3} size='large'>
                                 <Menu.Item
-                                    active={this.state.activeMenu === 'details'}
+                                    className="underline"
+                                    active={activeTab === 'details'}
                                     onClick={() => this.onMenuClick('details')}
                                 >
                                     <Icon name='info'/> {language.buttons.view}
                                 </Menu.Item>
                                 <Menu.Item
-                                    active={this.state.activeMenu === 'price'}
+                                    active={activeTab === 'price'}
                                     onClick={() => this.onMenuClick('price')}
                                 >
                                     <Icon name='chart line'/> {language.buttons.priceHistory}
                                 </Menu.Item>
                                 <Menu.Item
-                                    active={this.state.activeMenu === 'quantity'}
+                                    active={activeTab === 'quantity'}
                                     onClick={() => this.onMenuClick('quantity')}
                                 >
                                     <Icon name='area chart'/> {language.buttons.quantityHistory}
@@ -141,6 +145,7 @@ export default class BuildForm extends React.Component {
                     </>
             }
         }
+        //Should we build new product creation page
         if (/^(\/products\/create)$/.test(this.props.location.pathname)) {
             component =
                 <>
@@ -163,6 +168,7 @@ export default class BuildForm extends React.Component {
                 </Grid.Row>
                 </>
         }
+        //Should we build existing product edition page
         if (/^(\/products\/\d+\/edit$)$/.test(this.props.location.pathname)) {
             component =
                 <>
