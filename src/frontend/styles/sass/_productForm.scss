@@ -1,0 +1,33 @@
+@import 'variables';
+@import 'mixins.scss';
+
+.custom-input input {
+  border: hidden !important;
+  border-radius: 0 !important;
+  font-size: medium !important;
+  border-bottom: 1px solid $input-border !important;
+  background: transparent !important;
+}
+
+.custom-input input:hover {
+  box-shadow: inset 0 -2px 0 0 $input-border-hover !important;
+  @include input-hover-transition;
+}
+
+.custom-input input:focus {
+  @include input-hover-transition;
+  box-shadow: inset 0 -2px 0 0 $main-blue !important;
+}
+
+.custom-label {
+  color: $label-color !important;
+  font-weight: bold !important;
+}
+
+.error label {
+  color: $error-red !important;
+}
+
+.error .custom-input input {
+  color: $error-red !important;
+}

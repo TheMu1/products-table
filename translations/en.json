@@ -1,0 +1,90 @@
+{
+  "productTablePage":{
+    "pageHeader": "Products table"
+  },
+  "table":{
+    "columns":{
+      "ean": "EAN",
+      "name": "Name",
+      "type": "Type",
+      "weight": "Weight, (kg)",
+      "flavour": "Flavour",
+      "quantity": "Quantity",
+      "price": "Price",
+      "active": "Active",
+      "controls": "Controls"
+    },
+    "previousText": "Previous",
+    "nextText": "Next",
+    "noDataText": "No rows found",
+    "rowsPerPage": "Rows per page",
+    "showing": "showing",
+    "of": "of"
+  },
+  "createPage":{
+    "header": "Create new product:",
+    "ean": "EAN number:",
+    "name": "Product name:",
+    "type": "Product type:",
+    "weight": "Product weight in (kg):",
+    "flavour": "Product flavour:",
+    "quantity": "Product quantity (pcs.):",
+    "price": "Product price in ($):",
+    "active": "Active:"
+  },
+  "viewPage":{
+    "header": "Product details:"
+  },
+  "editPage":{
+    "header": "Edit product details"
+  },
+  "buttons":{
+    "language": "Language",
+    "create": "Create New",
+    "edit": "Edit",
+    "view": "View",
+    "delete": "Delete",
+    "save": "Save",
+    "back": "Back",
+    "details": "Details",
+    "priceHistory": "Price",
+    "quantityHistory": "Quantity"
+  },
+  "charts": {
+    "quantity":{
+      "header": "Quantity history",
+      "seriesName": "Quantity change",
+      "valueName": "Quantity"
+    },
+    "price":{
+      "header":"Price history",
+      "seriesName": "Price change",
+      "valueName": "Price"
+    }
+  },
+  "messages":{
+    "positive":{
+      "saveSuccess": "Product successfully saved.",
+      "updateSuccess": "Product successfully updated"
+    },
+    "negative":{
+      "headerSaving": "Error occurred while saving.",
+      "eanDuplicate": "Please enter another EAN number. Product with given EAN number already exist.",
+      "eanEmpty": "EAN field is required.",
+      "priceEmpty": "Price field is required.",
+      "quantityEmpty": "Quantity field is required"
+    }
+  },
+  "placeholders":{
+    "numbers": "Only numbers are available [0-9]",
+    "numbersComma": "Only numbers and '.' are available.",
+    "lettersNumbers": "Only letters and numbers available"
+  },
+  "modal":{
+    "header": "Delete selected product",
+    "content": "Are you sure want to delete seelcted product ?",
+    "positiveBtn": "Yes",
+    "negativeBtn": "No"
+
+  }
+}

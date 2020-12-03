@@ -1,0 +1,91 @@
+{
+  "productTablePage":{
+    "pageHeader": "Produktų lentelė"
+  },
+  "table":{
+    "columns":{
+      "ean": "EAN numeris",
+      "name": "Pavadinimas",
+      "type": "Tipas",
+      "weight": "Svoris, (kg)",
+      "flavour": "Skonis",
+      "quantity": "Kiekis",
+      "price": "Kaina",
+      "active": "Aktyvus",
+      "controls": "Nustatymai"
+    },
+    "previousText": "Atgal",
+    "nextText": "Toliau",
+    "noDataText": "Tuščia",
+    "rowsPerPage": "Eil. per puslapį",
+    "showing": "rodoma",
+    "of": "iš"
+  },
+  "createPage":{
+    "header": "Sukurti naują produktą :",
+    "ean": "EAN numeris:",
+    "name": "Produkto pavadinimas:",
+    "type": "Produkto tipas:",
+    "weight": "Prdukto svoris(kg):",
+    "flavour": "Produkto skonis:",
+    "quantity": "Produkto kiekis (vnt.):",
+    "price": "Produkto kainą:",
+    "active": "Aktyvus:"
+  },
+  "viewPage":{
+    "header": "Informacija apie produktą:"
+  },
+  "editPage":{
+    "header": "Redaguoti produktą"
+  },
+  "buttons":{
+    "language": "Kalba",
+    "create": "Sukurti",
+    "edit": "Redaguoti",
+    "view": "Informacija",
+    "delete": "Trinti ",
+    "save": "Saugoti",
+    "back": "Atgal",
+    "details": "Informacija",
+    "priceHistory": "Kaina",
+    "quantityHistory": "Kiekis"
+  },
+  "charts": {
+    "quantity":{
+      "header":"Kiekio istorija",
+      "seriesName": "Kiekio kaita",
+      "valueName": "Kiekis"
+    },
+    "price":{
+      "header":"Kainos istorija",
+      "seriesName": "Kainos kaita",
+      "valueName": "Kaina"
+    }
+  },
+  "messages":{
+    "positive":{
+      "saveSuccess": "Produktas sėkmingai išsaugotas.",
+      "updateSuccess": "Produktas sėkmingai atnaujintas."
+    },
+    "negative":{
+      "headerSaving": "Įvyko klaida saugojant.",
+      "eanDuplicate": "Produktas su nurodytu EAN kodu jau egzistuoja.",
+      "fillReqFields": "Visi privalomi laukai turi būti užpildyti.",
+      "eanEmpty": "EAN laukas yra privalomas",
+      "priceEmpty": "Kainos laukas yra privalomas.",
+      "quantityEmpty": "Kiekio laukas yra privalomas"
+    }
+  },
+  "placeholders":{
+    "numbers": "Galimi tik skaičiai [0-9]",
+    "numbersComma": "Galimi tik skaičiai ir '.'",
+    "lettersNumbers": "Tik raides ir skaičiai"
+  },
+  "modal":{
+    "header": "Ištrinti pasirinktą produktą",
+    "content": "Ar jus tikrai norite ištrinti pasirinktą produktą ?",
+    "positiveBtn": "Taip",
+    "negativeBtn": "Ne"
+
+  }
+}
