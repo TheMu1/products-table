@@ -58,16 +58,16 @@ and (max-device-width: 811px)  {
   }
 
   thead tr {
-    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    border-top: 1px solid $mobile-table-border;
   }
 
   tbody tr {
-    border-top: 1px solid rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    border-top: 1px solid $mobile-table-border;
+    border-bottom: 1px solid $mobile-table-border;
   }
 
   tfoot tr{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid $mobile-table-border;
   }
 
   .ui.table:not(.unstackable) tr {
