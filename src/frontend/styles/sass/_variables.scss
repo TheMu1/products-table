@@ -1,10 +1,10 @@
 /// Main used colors
-$main-background: rgba(247, 247, 247, 0.08);
-$input-border: rgba(34, 36, 38, 0.15);
-$input-border-hover: rgba(0, 0, 0, 0.5);
-$table-bg: #f7f7f7;
-$table-rows-even-bg: #e7e7e7;
-$main-blue: #1976d2;
-$label-color: rgba(34, 36, 38, 0.5);
-$error-red: #f44336;
-$dark-blue: #424b81;
+$main-background: rgba(247, 247, 247, 0.1); /// body bg
+$input-border: rgba(34, 36, 38, 0.15); /// input bottom border no hover
+$input-border-hover: rgba(0, 0, 0, 0.5); ///input bottom border hover
+$table-bg: #f7f7f7; ///header footer table color
+$table-rows-even-bg: #e7e7e7; ///color for table even rows on mobile view
+$main-blue: #1976d2; ///main blue color used for header input focus etc.
+$label-color: rgba(34, 36, 38, 0.5); ///form labels color
+$error-red: #f44336; /// main red used for different errors
+$dark-blue: #424b81; /// used on page not found

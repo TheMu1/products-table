@@ -78,8 +78,12 @@ export default class ProductsTable extends React.Component {
             }
         ];
         columns.forEach(column => {
+            let sortClass;
+            if (sortColumn === column.index){
+                sortClass = sortDirection === 'descending' ? 'sort-top' : 'sort-bottom'
+            }
             tableHeader.push(
-                <Table.HeaderCell className="custom-table-header" key={column.index}
+                <Table.HeaderCell className={sortClass + " custom-table-header"} key={column.index}
                                   sorted={sortColumn === column.index ? sortDirection : null}
                                   onClick={sort.bind(this, column.index)}
                 >

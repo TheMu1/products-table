@@ -71,7 +71,8 @@ const config = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            template: 'index.html'
+            template: 'index.html',
+            favicon: "./favicon.ico"
         }),
     ],
     devtool: 'inline-source-map',

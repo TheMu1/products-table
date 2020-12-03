@@ -3,7 +3,8 @@
 [Live demo](http://testproductstable.herokuapp.com/)
 
 <b>Note*:</b>
-It may take some time to start on the first run.
+CSS commited to the repo for easly support heroku deployment only.
+*It may take some time to start on the first run.
 
 ## How to run the app
 

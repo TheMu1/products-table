@@ -14,12 +14,12 @@ const fields =
   },
   {
     "name": "name",
-    "pattern": "^[a-zA-Z0-9]*$",
+    "pattern": "^[^-\\s][[a-zA-Z0-9 ]*$",
     "placeholder": "lettersNumbers"
   },
   {
     "name": "type",
-    "pattern": "^[a-zA-Z0-9]*$",
+    "pattern": "^[^-\\s][a-zA-Z0-9 ]*$",
     "placeholder": "lettersNumbers"
   },
   {
@@ -30,7 +30,7 @@ const fields =
   },
   {
     "name": "flavour",
-    "pattern": "^[a-zA-Z0-9]*$",
+    "pattern": "^[^-\\s][a-zA-Z0-9 ]*$",
     "placeholder": "lettersNumbers",
   },
   {
