@@ -19,7 +19,13 @@ export default class CustomButton extends React.Component {
         )
     }
 }
-
+/*
+    icon - icon to show on button hover
+    color - button color
+    btnText - button text
+    onclick - onclick event
+    className - additional className
+ */
 CustomButton.propTypes = {
     icon: PropTypes.string,
     color: PropTypes.string,

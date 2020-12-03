@@ -16,7 +16,7 @@ and (max-device-width: 811px)  {
   td:nth-of-type(8):before { font-weight:bold; content: attr(text-th) ": "; }
   td:nth-of-type(9):before { font-weight:bold; content: attr(text-th) ": "; }
 
-  thead, tfoot{
+  thead, tfoot {
     background: $table-bg;
   }
   /// change evens tr background for more comfortable table read on mobile devices
@@ -37,7 +37,7 @@ and (max-device-width: 811px)  {
     top: 3px;
   }
 
-  .custom-input-tbl-inpt{
+  .custom-input-tbl-inpt {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -51,10 +51,30 @@ and (max-device-width: 811px)  {
     box-shadow: none !important;
   }
 
-  .ui.table:not(.unstackable) tbody, .ui.table:not(.unstackable) tr, .ui.table:not(.unstackable) tr > th, .ui.table:not(.unstackable) tr > td {
+  .ui.table:not(.unstackable) tbody, .ui.table:not(.unstackable) tr,
+  .ui.table:not(.unstackable) tr > th, .ui.table:not(.unstackable) tr > td {
     width: auto !important;
     display: block !important;
-    border-top: 1px solid #737373;
+  }
+
+  thead tr {
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+  }
+
+  tbody tr {
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  }
+
+  tfoot tr{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  }
+
+  .ui.table:not(.unstackable) tr {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
   }
 }
 

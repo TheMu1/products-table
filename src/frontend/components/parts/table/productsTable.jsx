@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Table, Button, Checkbox, Popup} from 'semantic-ui-react';
 import CustomInput from '../input';
 import TableFooter from "./tableFooter";
-
+// Products table component
 export default class ProductsTable extends React.Component {
     constructor(props) {
         super(props);
@@ -13,10 +13,11 @@ export default class ProductsTable extends React.Component {
         }
     }
 
-    //set how many rows will be displayed in the table
+    //set how many rows will be displayed in the table, also sets page to 0 if rows per page have been changed
     onChangePerPage = (e, {value}) => {
         this.setState({
-            rowsPerPage: value
+            rowsPerPage: value,
+            page: 0
         });
     };
 
@@ -85,7 +86,7 @@ export default class ProductsTable extends React.Component {
             tableHeader.push(
                 <Table.HeaderCell className={sortClass + " custom-table-header"} key={column.index}
                                   sorted={sortColumn === column.index ? sortDirection : null}
-                                  onClick={sort.bind(this, column.index)}
+                                  onClick={column.index !== "controls" ? sort.bind(this, column.index) : null}
                 >
                     {column.label}
                 </Table.HeaderCell>
@@ -164,7 +165,6 @@ export default class ProductsTable extends React.Component {
                 </Table.Row>
             );
         }
-
         return (
             <Table sortable className="custom-table" style={{width: '100%'}}>
                 <Table.Header>

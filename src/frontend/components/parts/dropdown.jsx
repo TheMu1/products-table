@@ -1,7 +1,7 @@
 import React from "react";
 import {Dropdown, Flag} from "semantic-ui-react";
 import PropTypes from "prop-types";
-
+// dropdown part/component with flag for language select, managed via props
 export default class Selection extends React.Component {
     constructor(props) {
         super(props);

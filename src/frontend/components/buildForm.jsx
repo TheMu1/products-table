@@ -5,7 +5,7 @@ import {Responsive, Grid, Menu, Icon} from "semantic-ui-react";
 import LineChart from "./parts/lineChart";
 import CustomButton from "./parts/customButton";
 /*
-    Builds product form component depending on the  purpose: preview/edit/create new
+    Builds product layout view depending on the  purpose: preview/edit/create new
  */
 export default class BuildForm extends React.Component {
     constructor(props) {
@@ -74,7 +74,6 @@ export default class BuildForm extends React.Component {
             }
             // Product view price history tab
             if (activeTab === 'price') {
-                console.log(product.priceHistory.length);
                 if (product.priceHistory.length > 0) {
                     product.priceHistory.forEach((el) => {
                         data.push(Number(el.value));

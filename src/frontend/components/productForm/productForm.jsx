@@ -7,7 +7,10 @@ import {onSaveClick} from "../actions/productFormActions";
 import CustomButton from "../parts/customButton";
 import SuccessMessage from "../parts/message";
 import fields from "./fields";
-
+/*
+     Product form component can represent product form for edit/view/create views.
+     Component managed via props parameters: editable, purpose to detect needed representation form.
+ */
 class ProductForm extends React.Component {
     constructor(props) {
         super(props);
@@ -136,7 +139,7 @@ class ProductForm extends React.Component {
             );
 
         }
-        // generate product form from fields objects
+        // generate product form from fields object array
         fields.forEach( (field) => {
           form.push(
               <Form.Field key={field.name} className={this.state.error[field.name] ? "error" : ""}>
