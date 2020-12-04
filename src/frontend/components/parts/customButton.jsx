@@ -2,6 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Button, Icon} from "semantic-ui-react";
 
+/*
+    Button with on hover icon transition/animation
+ */
 export default class CustomButton extends React.Component {
     constructor(props) {
         super(props);

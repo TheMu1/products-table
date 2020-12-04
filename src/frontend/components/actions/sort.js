@@ -1,28 +1,25 @@
 /*
     Sorts table data
     @param column - clumn sorted by
-    @param iconColumn - column where to display sort direction icon
-    @param products - table data
+    @param products - products array
     @param direction - sort direction
     @return return object of sorted data, sorted column and sort direction (asc/desc)
  */
-const sort = (column, iconColumn, products, direction) => {
+const sortData = (column, products, direction) => {
     column = column.toLowerCase();
-    direction = iconColumn ? (direction === 'ascending' ? 'descending' : 'ascending') : 'ascending';
-    const sortedData = products.sort((a, b) => {
+    //check wich semantic ui sorting icon to show (arrow up or down)
+    direction = direction === 'ascending' ? 'descending' : 'ascending';
+    //make a copy of products array, to avoid direct initial state/array mutation
+    let sortedData = [...products].sort((a, b) => {
         //detect are we sorting strings or numeric values
         if (isNumeric(a[column]) || typeof a[column] === 'boolean') {
             return a[column] - b[column];
         } else {
+            //as for demo task sorting not supporting locale
             const nameA = a[column].toUpperCase();
             const nameB = b[column].toUpperCase();
-            if (nameA < nameB) {
-                return -1;
-            }
-            if (nameA > nameB) {
-                return 1;
-            }
-            return 0;
+            //force nameA to be string to avoid possible exceptions (just in case :) )
+            return ('' + nameA).localeCompare(nameB);
         }
     });
     if (direction === 'descending') {
@@ -30,10 +27,8 @@ const sort = (column, iconColumn, products, direction) => {
     }
     return {
         data: sortedData,
-        sort: {
-            column,
-            direction
-        }
+        sortColumn: column,
+        sortDirection: direction
     };
 };
 
@@ -44,4 +39,4 @@ const isNumeric = (value) => {
     return /^\d+$/.test(value);
 };
 
-export default sort;
+export default sortData;

@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts";
 
-
+/*
+    Line chart component from Highcharts.js
+ */
 export default class LineChart extends React.Component {
     constructor(props) {
         super(props);

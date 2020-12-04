@@ -4,8 +4,9 @@
     @param data - new product data
     @param translation - object with translated texts
     @param purpose - for proper edit/create product actions (on edit we dont need to check for duplicates as we dont editing EAn)
-    @returns error object i.e error:{valid: false, ean: 'errorMsg' , price = 'errorMsg' }
+    @returns error object if validation failed i.e error:{valid: false, ean: 'errorMsg' , price = 'errorMsg' }
  */
+//simple validation example as for demo task, can be extended later with matching each field pattern
 export const validateForm = (products, data, translation, purpose) => {
     let duplicate = false;
     let error = {};

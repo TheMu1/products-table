@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Form, Checkbox} from "semantic-ui-react";
 import CustomInput from "../parts/input";
 import {withRouter} from "react-router";
-import {onSaveClick} from "../actions/productFormActions";
+import {saveUpdateProduct} from "../actions/productsActions";
 import CustomButton from "../parts/customButton";
 import SuccessMessage from "../parts/message";
 import fields from "./fields";
@@ -27,6 +27,7 @@ class ProductForm extends React.Component {
                 priceHistory: [],
                 quantityHistory: []
             },
+            //error messages for all existing form fields
             error: {
                 ean: '',
                 name: '',
@@ -37,43 +38,45 @@ class ProductForm extends React.Component {
                 price: '',
                 duplicate: ''
             },
-            editable: this.props.editable,
-            quantityChanged: false,
-            priceChanged: false,
-            saved: false,
-            successMessage: ''
+            editable: this.props.editable,  //form editable flag
+            quantityChanged: false,         // flag to push data into quantity history array
+            priceChanged: false,            //flag to push data into price history array
+            saved: false,                   //save action flag
+            successMessage: ''              //msg after successful save action
         };
     }
 
     componentDidMount() {
-        if (this.props.product) {
-            let product = this.props.product;
+        let product = this.props.product;
+        if (product && product.ean) {
             this.setState({
                 product: product
-            })
+            });
         }
     }
 
     onSaveClick = () => {
-        let result = onSaveClick(this.props.language.messages, this.state.product,
-            this.state.priceChanged, this.state.quantityChanged, this.props.purpose);
+        let {product, quantityChanged, priceChanged} = this.state;
+        let {language, purpose} = this.props;
+        //save or update product depending on the purpose
+        let result = saveUpdateProduct(language.messages, product, priceChanged, quantityChanged, purpose);
         this.setState({
             ...result
         });
     };
-    //tracks checkbox select
+
+    //tracks product active checkbox select
     onActiveCheckChange = () => {
         this.setState((prevState) => {
             let product = {...this.state.product, active: !prevState.product.active};
-            return {
-                product
-            }
+            return {product}
         })
     };
-    //tracks form inputs changes depending on input name
+
+    //centralized tracker for form input changes depending on the input name
     onInputChange = (e) => {
         if (e.target.validity.valid) {
-            //flags to check if price/quantity has been changed and should be represented in history graph
+            //flags to check if price/quantity values has been changed and should be represented in history graph
             let {quantityChanged, priceChanged} = this.state;
             const product = {...this.state.product, [e.target.name]: e.target.value};
             if (e.target.name === 'quantity') {
@@ -91,6 +94,7 @@ class ProductForm extends React.Component {
                 }
             })
         } else {
+            //field validation not passed show error message
             this.setState({
                 ...this.state.product,
                 error: {
@@ -113,12 +117,13 @@ class ProductForm extends React.Component {
                     content={this.state.successMessage}
                 />
         }
-        //check if it's allowed to edit ean number
+        //check if it's allowed to edit ean number if we editing existing product ean should be not editable
         eanEditable = !(!editable || purpose === 'edit');
-        if(purpose != "view"){
+        if(purpose !== "view"){
+            //back button
             buttons.push(
                 <CustomButton
-                    key="1"
+                    key="back-btn"
                     color="blue"
                     icon="arrow left"
                     btnText={language.buttons.back}
@@ -127,9 +132,10 @@ class ProductForm extends React.Component {
             );
         }
         if (editable) {
+            //save button for product create/edit form
             buttons.push(
                 <CustomButton
-                    key="2"
+                    key="save-btn"
                     className="float-right"
                     color="green"
                     icon="check"
@@ -137,13 +143,15 @@ class ProductForm extends React.Component {
                     onClick={this.onSaveClick}
                 />
             );
-
         }
-        // generate product form from fields object array
+        // generate product form depending on fields object array
         fields.forEach( (field) => {
           form.push(
               <Form.Field key={field.name} className={this.state.error[field.name] ? "error" : ""}>
-                  <label className="custom-label">{language.createPage[field.name]}</label>
+                  <label className="custom-label">
+                      {language.createPage[field.name]}
+                      {field.required ? '*' : ''}
+                  </label>
                   <CustomInput
                       className="custom-input"
                       indexKey={field.name}

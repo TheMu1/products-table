@@ -3,31 +3,35 @@ import PropTypes from "prop-types";
 import {Modal} from 'semantic-ui-react';
 import CustomButton from "./customButton";
 
+/*
+    Pop-up modal component with positive/negative selection buttons.
+ */
 export default class CustomModal extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
+        let {language, positiveAction, negativeAction, show} = this.props;
         return (
             <div>
-                <Modal size={"mini"} open={this.props.show}>
-                    <Modal.Header>{this.props.modalHeader}</Modal.Header>
+                <Modal size={"mini"} open={show}>
+                    <Modal.Header>{language.header}</Modal.Header>
                     <Modal.Content>
-                        {this.props.modalContent}
+                        {language.content}
                     </Modal.Content>
                     <Modal.Actions>
                         <CustomButton
                             color="red"
                             icon="x icon"
-                            btnText={this.props.negativeBtnText}
-                            onClick={this.props.negativeAction}
+                            btnText={language.negativeBtn}
+                            onClick={negativeAction}
                         />
                         <CustomButton
                             color="green"
                             icon="trash alternate outline"
-                            btnText={this.props.positiveBtnText}
-                            onClick={this.props.positiveAction}
+                            btnText={language.positiveBtn}
+                            onClick={positiveAction}
                         />
                     </Modal.Actions>
                 </Modal>
@@ -40,8 +44,5 @@ CustomModal.propTypes = {
     modalHeader: PropTypes.string,
     modalContent: PropTypes.string,
     show: PropTypes.bool,
-    positiveBtnText: PropTypes.string,
-    negativeBtnText: PropTypes.string,
-    positiveAction: PropTypes.func,
-    negativeAction: PropTypes.func
+    language: PropTypes.object,
 };

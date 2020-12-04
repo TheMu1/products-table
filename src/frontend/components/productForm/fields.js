@@ -4,22 +4,25 @@
   @pattern - field input pattern
   @placehoder - field placeholder name (for later translation) placeholder also used to display on active input checks
                 later can be replaced with separate key:value for more different/attractive user facing messages.
+  @required - true if we need to add asterisk symbol to field label (mark required field)
 */
+const letterNumbersRe = "^[a-zA-ZąčęėįšųūĄČĘĖĮŠŲŪ0-9](?!.*\\s{2,})[a-zA-ZąčęėįšųūĄČĘĖĮŠŲŪ0-9 ]*$";
 const fields =
 [
   {
     "name": "ean",
     "pattern": "^\\d+$",
-    "placeholder": "numbers"
+    "placeholder": "numbers",
+    "required": true
   },
   {
     "name": "name",
-    "pattern": "^[a-zA-Z0-9](?!.*\\s{2,})[a-zA-Z0-9 ]*$",
+    "pattern": letterNumbersRe,
     "placeholder": "lettersNumbers"
   },
   {
     "name": "type",
-    "pattern": "^[a-zA-Z0-9](?!.*\\s{2,})[a-zA-Z0-9 ]*$",
+    "pattern": letterNumbersRe,
     "placeholder": "lettersNumbers"
   },
   {
@@ -30,20 +33,22 @@ const fields =
   },
   {
     "name": "flavour",
-    "pattern": "^[a-zA-Z0-9](?!.*\\s{2,})[a-zA-Z0-9 ]*$",
+    "pattern": letterNumbersRe,
     "placeholder": "lettersNumbers",
   },
   {
     "name": "quantity",
     "pattern": "^\\d+$",
     "placeholder": "numbers",
-    "type": "number"
+    "type": "number",
+    "required": true
   },
   {
     "name": "price",
     "pattern": "^\\d+([\\.]\\d{0,2})?$",
     "placeholder": "numbersComma",
-    "type": "text"
+    "type": "text",
+    "required": true
   }
 ];
 

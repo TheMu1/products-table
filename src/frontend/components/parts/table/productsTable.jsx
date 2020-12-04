@@ -14,6 +14,7 @@ export default class ProductsTable extends React.Component {
     }
 
     //set how many rows will be displayed in the table, also sets page to 0 if rows per page have been changed
+    //still need to pass unused e according to semantic docs
     onChangePerPage = (e, {value}) => {
         this.setState({
             rowsPerPage: value,
@@ -25,6 +26,7 @@ export default class ProductsTable extends React.Component {
     setPage = (page) => {
         //check if current page is not outbound pagination indexes
         if (page < 0 || page > this.props.data.length / this.state.rowsPerPage) {
+            //page is outbounded simple -> return nothing
             return;
         } else {
             this.setState({
@@ -86,7 +88,7 @@ export default class ProductsTable extends React.Component {
             tableHeader.push(
                 <Table.HeaderCell className={sortClass + " custom-table-header"} key={column.index}
                                   sorted={sortColumn === column.index ? sortDirection : null}
-                                  onClick={column.index !== "controls" ? sort.bind(this, column.index) : null}
+                                  onClick={column.index !== "controls" ? () => {sort(column.index)} : null}
                 >
                     {column.label}
                 </Table.HeaderCell>
@@ -98,7 +100,7 @@ export default class ProductsTable extends React.Component {
             this.props.data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                     tableData.push(
-                        <Table.Row key={row.ean} negative={row.quantity == 0}>
+                        <Table.Row key={row.ean} negative={row.quantity === 0}>
                             <Table.Cell width={2} text-th={columns[0].label}>{row.ean}</Table.Cell>
                             <Table.Cell width={2} text-th={columns[1].label}>{row.name}</Table.Cell>
                             <Table.Cell width={2} text-th={columns[2].label}>{row.type}</Table.Cell>

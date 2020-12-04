@@ -8,6 +8,7 @@ import {
 import {createBrowserHistory as browserHistory} from "history";
 import Products from "./products";
 import BuildView from "./buildForm";
+import ProductView from "./productView";
 import PageNotFound from "./pageNotFound";
 import En from "../../../translations/en.json";
 import Lt from "../../../translations/lt.json";
@@ -33,15 +34,14 @@ function App(){
             <Router history={browserHistory()}>
                 <Switch>
                     <Redirect key="r1" exact path="/" to="/products" />
-                    <Route key="table" exact path="/products" render={(props) => <Products {...props} language={lang}/>}/>
+                    <Route key="table" exact path="/products"
+                           render={(props) => <Products {...props} language={lang} />}/>
                     <Route key="create" exact path="/products/create"
-                           render={(props) => <BuildView {...props} language={lang}/>}/>
-                    <Route key="create" exact path="/products/create/saved"
-                           render={(props) => <BuildView {...props} language={lang}/>}/>
+                           render={(props) => <BuildView {...props} language={lang} purpose="create"/>}/>
                     <Route key="preview" exact path="/products/:id"
-                           render={(props) => <BuildView {...props} language={lang}/>}/>
+                           render={(props) => <ProductView {...props} language={lang}/>}/>
                     <Route key="edit" exact path="/products/:id/edit"
-                           render={(props) => <BuildView {...props} language={lang}/>}/>
+                           render={(props) => <BuildView {...props} language={lang} purpose="edit"/>}/>
                     <Route render={() => <PageNotFound language={lang}/>} />
                 </Switch>
             </Router>

@@ -11,6 +11,7 @@ export default class TableFooter extends React.Component {
     render() {
         let showingRows;
         let {page, rowsPerPage, totalRows, translation} = this.props;
+        //pages select options
         const options = [
             {key: 1, text: '5', value: 5},
             {key: 2, text: '10', value: 10},

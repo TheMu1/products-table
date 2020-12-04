@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import {Input} from "semantic-ui-react";
 
 /*
-    input part/component wich can be of different types: text/number etc, with given optional parameter like min value
-    and so on. Part is being managed via props params.
+    input part/component wich supports different types: text/number etc, with given optional parameter like min value,
+    editable, additionals style classes and so on. Part is being managed via props params.
  */
 export default class CustomInput extends React.Component {
     constructor(props) {

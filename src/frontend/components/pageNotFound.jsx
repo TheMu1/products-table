@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {Icon} from "semantic-ui-react";
-
+/*
+    Page not found component, shown if root url is not defined in the router
+ */
 export default class PageNotFound extends React.Component {
     constructor(props) {
         super(props);

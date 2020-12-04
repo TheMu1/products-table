@@ -1,21 +1,37 @@
 import React from "react";
 import {Dropdown, Flag} from "semantic-ui-react";
 import PropTypes from "prop-types";
-// dropdown part/component with flag for language select, managed via props
+import {getLanguage} from "../actions/fetcingActions";
+
+// dropdown component with flags for language select, managed via props
 export default class Selection extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            selected: 'English'
+        };
     }
 
+    //set initial state from localStorage to ensure proper React lifecycle
+    componentDidMount() {
+        this.setState({
+            selected: getLanguage()
+        });
+    }
+
+    handleSelect = (e, {value}) => {
+        this.setState({selected: value}, () => {
+            localStorage.setItem('lang', JSON.stringify(this.state.selected))
+        });
+        this.props.onChange();
+    };
+
     render() {
-        let options = [];
-        if (this.props.values && this.props.values.length > 0) {
-            this.props.values.forEach((value) => {
-                options.push(
-                    {key: value.text, value: value.text, text: <span> <Flag name={value.flag}/> {value.text}</span>}
-                );
-            })
-        }
+        //existing languages
+        const options = [
+            {key: 'en', value: 'English', text: <span> <Flag name='gb' size="large"/>English</span>},
+            {key: 'lt', value: 'Lietuvių', text: <span> <Flag name='lt' size="large"/>Lietuvių</span>}
+            ];
 
         return (
             <div>
@@ -30,8 +46,8 @@ export default class Selection extends React.Component {
                     selection
                     options={options}
                     size="Large"
-                    onChange={this.props.onChange}
-                    value={this.props.value}
+                    onChange={this.handleSelect}
+                    value={this.state.selected}
                     noResultsMessage={this.props.noResults}
                 />
             </div>
@@ -42,6 +58,4 @@ export default class Selection extends React.Component {
 Selection.propTypes = {
     name: PropTypes.string,
     onChange: PropTypes.func,
-    value: PropTypes.string,
-    values: PropTypes.array
 };

@@ -79,7 +79,7 @@
   "placeholders":{
     "numbers": "Only numbers are available [0-9]",
     "numbersComma": "Only numbers and '.' are available i.e. 1.33, 0.33",
-    "lettersNumbers": "Only letters and numbers/space available i.e. Coca Cola"
+    "lettersNumbers": "Only letters and numbers/word space available i.e. Coca Cola"
   },
   "modal":{
     "header": "Delete selected product",
@@ -96,10 +96,10 @@
   },
   "noPriceChart": {
     "header": "Opps it seems you do not have any price changes yet :)",
-    "text": "Make some  product price changes to see history chart"
+    "text": "Make some  product price changes to see history chart."
   },
   "noQuantityChart": {
     "header": "Opps it seems you do not have any quantity changes yet :)",
-    "text": "Make some  product quantity changes to see history chart"
+    "text": "Make some  product quantity changes to see history chart."
   }
 }
